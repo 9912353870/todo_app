@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+<input type="text" id="add_todo" value="" />
+<button id="add"> Add more</button>
+</div>
+<div id="test">
+</div>
+<script>
+document.getElementById('add').addEventListener('click',function(){
+addItems();
+});
+
+function addItems(){
+var todo = document.getElementById('add_todo').value;
+var parent = document.createElement('div');
+var text = document.createElement('p');
+text.innerText = todo;
+var button = document.createElement('button');
+button.className = "btn";
+button.innerText = "X";
+parent.appendChild(text);
+parent.appendChild(button);
+parent.className = "outerdiv";
+
+button.addEventListener('click',function(){
+this.parentNode.remove();
+});
+
+if(todo != ""){
+document.getElementById('test').appendChild(parent);
+document.getElementById('add_todo').value = '';
+}
+
+}
+</script>
+<style>
+ .outerdiv{
+    float: left;
+    border: 1px solid #00000047;
+    margin: 5px;
+    padding: 2px 5px;
+}
+p{
+    width: 300px;
+    float: left;
+}
+.outerdiv button{
+    margin: 12px;
+    border-radius: 83px;
+    padding: 5px 9px;
+    border: none;
+}
+</style>
+</body>
+</html>
+
